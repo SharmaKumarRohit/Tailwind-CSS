@@ -1,0 +1,115 @@
+<-- Tailwind Notes -->
+
+1. [&>*]:flex --> esh ka matlab hai ke apnae all child par flex class ko include kar doo.
+
+2. text-red-50, bg-red-50, border-green-100, border-4, outline-yellow-100, outline, outline-8
+
+3. 1px class margin and padding --> m-px, p-px
+
+4. max-w-4, min-w-4, w-fit
+
+5. max-h-4, min-h-4, h-screen, h-full
+
+6. size-20 --> size property se height and width doono ak shath apply hoti hai.
+
+7. Positions --> absolute, relative, bottom-10, top-10, right-10, left-10, inset-10, fixed
+
+8. container, "container: {center: true}" to center it container class element and apply this object in tailwind.config.js,
+   another way to center container class "mx-auto"
+
+9. Background Property --> bg-[url(image-url)], bg-no-repeat, bg-center, bg-contain, bg-cover
+
+10. Gradient Property --> gradient, bg-gradient-to-tr, to-yellow-500, from-blue-500
+
+11. shadow Property --> shadow-orange-400, shadow-2xl, shadow-inner
+
+12. Filters with Images --> blur-lg, brightness-50, contrast-50, grayscale, invert, hue-rotate-90
+
+13. How to disable filters --> Go to the tailwind.config.js put it, "corePlugins: {filter: false}"
+
+14. Interactivity classes --> hover:bg-blue-800, focus:bg-yellow-600, active:bg-red-600
+
+15. Group Hover -->
+    <div>
+  	 <a class="group">
+	      <h1 class="group-hover:bg-black group-hover:text-white">Heading click </h1>
+	      <p class="group-hover:bg-black group-hover:text-white">Heading click </p>
+         </a>
+    </div>
+
+16. Columns Property --> columns-1(ya columns ko auto responsive nahi karega, manually karna hoga) or columns-3xs(ya columns ko
+    auto responsive karega), gap-0.
+
+17. flexbox Property --> flex, flex-col, items-center, justify-center, justify-between, justify-around, flex-wrap, content-start,
+    flex-row.
+
+18. Grid Property --> gird, grid-cols-4, gap-2, col-span-2, row-span-4.
+
+19. Transition Property --> transition, duration-1000, transition-transform
+
+20. Transform Property --> rotate-45, scale-75, scale-x-150, scale-y-150
+
+21. opacity --> opacity-5
+
+22. HR tag --> <hr /> give it horizontal line.
+
+23. Animation Property --> animate-bounce(esha element bounce hoga), animate-spin(esha element spin hoga),
+    animate-ping(esha element visible or non-visible hoga), animate-pulse
+
+24. Screen Breakpoint Customization --> This code define the tailwind.config.js file, to define custom break points.
+    extend: {
+	screens: {
+	   kt: '600px', ("kt" is define any name, or it is default break point is 600px. Ex --> kt:bg-slate-500(usage))
+	   md: '800px', (change the md(768px) default break point to self break point(800px))
+	   lg: '1100px', (change the lg(1024px) default break point to self break point(1100px))
+	   xl: '1200px', (change the xl(1280px) default break point to self break point(1200px))
+        },
+    },
+
+25. space-customization((margin, padding, width, height)x) --> extend: {spacing: {'21': '4rem'}} ya "spacing" shabhi(x) ka liya
+    custom spacing ko define kar deta hai. Instead of ki shabhi(x) ko ak-ak kar ka customization karna. usage(p-21)
+
+26. Dark Mode according to system(matlab apka system, current time mai dark mode hai ya fir light mode mai) -->
+    usage(dark:bg-slate-700, dark:text-white)
+
+27. Directives or At-rules ak hi consider karna hai. MATLAB ki Tailwind mai, esha "directive" kahtae hai or Core CSS mai, esha
+    "At-rules" kahtae hai. Tailwind ka andar three important directive hotae hai @tailwind, @layer or @apply.
+
+28. @tailwind base; --> html ka default style ko clear kar deta hai.
+
+29. @tailwind component; --> esha mai ap apni components ko define kar shakte hai, matlab ki custom classes ko define kar shakte
+    hai.
+
+30. @tailwind utilities; --> ham joo bhi classes ko use karate hai, woo classes utilities directive se given hota hai.
+
+31. @layer base{} --> @layer ka use karnae par base directive mai html ka element liya custom style ko define kar shakte hai.
+    Ex --> @layer base{
+		h1 {
+		 font-size: 50px;
+		}
+	   }
+
+32. Agar mujhee @layer base{} mai tailwind classes ka use karna ho to @apply ka use karna hoga. Ex -->
+    @layer base {
+	 h1 {
+	  @apply text-8xl bg-black text-white;
+         }
+    }
+
+33. Custom classes --> @layer components {} ka andar mai apni custom classes ko define kar shakta hu. Ex -->
+    @layer components {
+	.title {
+	    @apply bg-blue-500 text-white p-2 hover:bg-blue-700;
+	}
+    }
+
+34. Note:- Agar mai apni custom classes ko @layer components ka outside mai define karu to tailwind ki some classes work nahi
+    karegi. Such that interactivity classes(hover, focus, active). Esh liya hamae apni custom classes ko @layer components mai he
+    define karna hai. Ex -->
+    @layer components {}
+    .title {
+	    @apply bg-blue-500 text-white p-2 hover:bg-blue-700;
+	} /* do not working, put into the code inside @layer components */
+
+35. Add google fontFamily --> first import google in style.css and define the fontFamily in config file. Ex-->
+    extends: {fontFamily: {fontName: "Helvatica", "sans-serif"}}
