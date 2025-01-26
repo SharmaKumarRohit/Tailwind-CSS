@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html, body {
+        overflow-x: hidden;
+    }
+    h1, h2, h3 {
+        @apply font-display text-gray-800 font-medium;
+    }
+    .container-size {
+        @apply px-4 max-w-7xl mx-auto lg:px-8 mt-14;
+    }
+    .anchor-hover {
+        @apply border-b border-dotted border-y-gray-300 hover:border-solid hover:border-gray-500;
+    }
+    .gradient-hover-outer {
+        @apply p-[1px] bg-slate-200 hover:bg-gradient-to-br hover:from-red-200 hover:via-purple-200 hover:to-yellow-200;
+    }
+    .gradient-hover-inner {
+        @apply bg-slate-50 group-hover:bg-gradient-to-br group-hover:from-red-50 group-hover:via-purple-50 group-hover:to-yellow-50;
+    }
+    .h2-title {
+        @apply text-5xl mb-14 leading-tight sm:font-semibold max-w-2xl;
+    }
+}
